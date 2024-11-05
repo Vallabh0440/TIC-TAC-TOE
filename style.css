@@ -1,0 +1,41 @@
+.wrapper{
+    width: 99vw;
+    height: 96vh;
+    background-color: bisque;
+    display: grid;
+    place-items: center;
+}
+
+.game-info{
+    color: black;
+    position: absolute;
+    top: 5%;
+    left: 42%;
+    background-color: white;
+    border-radius: 1rem;
+    border: 1px solid grey;
+    padding: 0.5rem 3rem;
+    text-align: center;
+}
+.tic-tac-toe{
+    width: 60%;
+    max-width: 20rem;
+    background-color: white;
+    border-radius: 1rem;
+    border: 1px solid grey;
+    margin-top: 10%;
+    display: grid;
+    grid-template-columns:repeat(3,1fr) ;
+    aspect-ratio: 1/1;
+}
+
+.box{
+    position: relative;
+    width: 10%;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    font-size: 3rem;
+    color: black;
+    display: flex;
+    justify-content: center;
+}
