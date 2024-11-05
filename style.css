@@ -1,41 +1,72 @@
 .wrapper{
     width: 99vw;
     height: 96vh;
-    background-color: bisque;
+    background-color: #52b788;
     display: grid;
     place-items: center;
 }
 
 .game-info{
-    color: black;
+    color: rgb(255, 249, 249);
     position: absolute;
     top: 5%;
     left: 42%;
-    background-color: white;
+    background-color: #1b4332;
     border-radius: 1rem;
     border: 1px solid grey;
     padding: 0.5rem 3rem;
     text-align: center;
 }
 .tic-tac-toe{
-    width: 60%;
+    width: 90%;
     max-width: 20rem;
-    background-color: white;
+    background-color: #d8f3dc;
     border-radius: 1rem;
     border: 1px solid grey;
-    margin-top: 10%;
+    /* margin-top: 10%;  */
     display: grid;
-    grid-template-columns:repeat(3,1fr) ;
+    grid-template-columns:repeat(3,2fr) ;
     aspect-ratio: 1/1;
 }
 
 .box{
     position: relative;
-    width: 10%;
+    /* width: 10%; */
+    /* height: 20%; */
     aspect-ratio: 1/1;
     cursor: pointer;
     font-size: 3rem;
     color: black;
     display: flex;
     justify-content: center;
+}
+
+.box1,.box2,.box4,.box5{
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.box3,.box6{
+    border-bottom: 2px solid black;
+}
+
+.box7,.box8{
+    border-right: 2px solid black;
+}
+
+.btn{
+    background-color: #1b4332;
+    height: 40%;
+    width:10%;
+    border-radius: 30rem;
+    color: aliceblue;
+    cursor: pointer;
+    display: none;
+}
+
+.btn.active{
+    display: flex;
+}
+.win{
+    background-color: bisque;
 }
