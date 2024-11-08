@@ -18,8 +18,8 @@
     text-align: center;
 }
 .tic-tac-toe{
-    width: 90%;
-    max-width: 20rem;
+    width: 20%;
+    /* max-width: 20rem; */
     background-color: #d8f3dc;
     border-radius: 1rem;
     border: 1px solid grey;
@@ -68,5 +68,5 @@
     display: flex;
 }
 .win{
-    background-color: bisque;
+    background-color: rgb(47, 254, 11);
 }
