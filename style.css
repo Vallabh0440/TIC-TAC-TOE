@@ -1,72 +1,147 @@
-.wrapper{
-    width: 99vw;
-    height: 96vh;
-    background-color: #52b788;
-    display: grid;
-    place-items: center;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.game-info{
-    color: rgb(255, 249, 249);
-    position: absolute;
-    top: 5%;
-    left: 42%;
-    background-color: #1b4332;
-    border-radius: 1rem;
-    border: 1px solid grey;
-    padding: 0.5rem 3rem;
-    text-align: center;
-}
-.tic-tac-toe{
-    width: 20%;
-    /* max-width: 20rem; */
-    background-color: #d8f3dc;
-    border-radius: 1rem;
-    border: 1px solid grey;
-    margin-top: 8%; 
-    display: grid;
-    grid-template-columns:repeat(3,2fr) ;
-    aspect-ratio: 1/1;
+/* Wrapper container - full viewport */
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #52b788, #40916c);
+  display: grid;
+  place-items: center;
+  position: relative;
+  padding: 1rem;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.box{
-    position: relative;
-    aspect-ratio: 1/1;
-    cursor: pointer;
-    font-size: 3rem;
-    color: black;
-    display: flex;
-    justify-content: center;
+/* Game info text */
+.game-info {
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(27, 67, 50, 0.85);
+  color: #fff;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+  padding: 0.75rem 2.5rem;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 600;
+  text-align: center;
+  user-select: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 10;
 }
 
-.box1,.box2,.box4,.box5{
-    border-right: 2px solid black;
-    border-bottom: 2px solid black;
+/* Tic Tac Toe board */
+.tic-tac-toe {
+  width: min(90vw, 400px);
+  aspect-ratio: 1 / 1;
+  background-color: #d8f3dc;
+  border-radius: 1rem;
+  border: 2px solid #40916c;
+  margin-top: 5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  box-shadow: 0 6px 15px rgba(64, 145, 108, 0.4);
 }
 
-.box3,.box6{
-    border-bottom: 2px solid black;
+/* Each box */
+.box {
+  cursor: pointer;
+  font-size: clamp(2rem, 6vw, 4rem);
+  color: #1b4332;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
 }
 
-.box7,.box8{
-    border-right: 2px solid black;
+/* Borders for boxes to form grid lines */
+.box1, .box2, .box4, .box5 {
+  border-right: 2px solid #1b4332;
+  border-bottom: 2px solid #1b4332;
 }
 
-.btn{
-    background-color: #1b4332;
-    height: 25%;
-    width:10%;
-    align-items: center;
-    justify-content: center;
-    border-radius: 30rem;
-    color: aliceblue;
-    cursor: pointer;
-    display: none;
+.box3, .box6 {
+  border-bottom: 2px solid #1b4332;
 }
 
-.btn.active{
-    display: flex;
+.box7, .box8 {
+  border-right: 2px solid #1b4332;
 }
-.win{
-    background-color: rgb(47, 254, 11);
+
+/* Hover effect */
+.box:hover:not(.win):not(.disabled) {
+  background-color: #74c69d;
+  color: #14532d;
+}
+
+/* Win state */
+.win {
+  background-color: #2ffe0b;
+  color: #0b3d00;
+  font-weight: 700;
+  box-shadow: 0 0 15px #2ffe0b;
+}
+
+/* New Game button */
+.btn {
+  background-color: #1b4332;
+  color: aliceblue;
+  font-weight: 600;
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  margin-top: 3rem;
+  box-shadow: 0 5px 15px rgba(27, 67, 50, 0.7);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  align-self: center;
+  display: none;
+}
+
+.btn.active {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Button hover */
+.btn:hover,
+.btn:focus {
+  background-color: #14532d;
+  box-shadow: 0 8px 20px rgba(20, 83, 45, 0.9);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .tic-tac-toe {
+    width: 90vw;
+    margin-top: 4rem;
+  }
+
+  .game-info {
+    font-size: clamp(0.9rem, 3vw, 1.2rem);
+    padding: 0.5rem 1.5rem;
+    top: 1rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+    margin-top: 2rem;
+  }
 }
